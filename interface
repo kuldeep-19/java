@@ -1,0 +1,44 @@
+
+interface i1
+{
+	void meth1();
+	default void meth2()
+	{
+		System.out.println("meth2 in interface");
+	}
+	static void meth3()
+	{
+		System.out.println("static method called");
+	}
+}
+ class cl1 implements i1
+ {
+	 public void meth1()
+	 {
+		 System.out.println("meth1 in cl1");
+	 }
+ }
+ class cl2 implements i1
+ {
+	 public void meth1()
+	 {
+		 System.out.println("meth1 in cl2");
+	 }
+	 public void meth2()
+	 {
+		 System.out.println("meth2 in cl2");
+	 }
+ }
+public class demointerface {
+
+	public static void main(String[] args) {
+	cl1 ob =new cl1();
+	i1.meth3();
+	ob.meth1();
+	ob.meth2();
+	cl2 ob2 =new cl2();
+	i1.meth3();
+	ob2.meth1();
+	ob2.meth2();
+	}
+}
