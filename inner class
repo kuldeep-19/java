@@ -1,0 +1,49 @@
+package kuldeep;
+class Outer {
+	int outer_x;
+	Inner i1;
+	Outer()
+	{
+		System.out.println("outer class constructor called");
+		outer_x=10;
+		i1=new Inner();
+	}
+	Outer(int p, int q)
+	{
+		outer_x=p;
+		i1=new Inner(q);
+	}
+	void show()
+	{
+		i1.disp();
+		System.out.println(i1.inner_y);
+	}
+	class Inner
+	{
+		int inner_y;
+		Inner()
+		{
+			inner_y=20;
+			System.out.println("inner class constructor called");
+		}
+		Inner (int p)
+		{
+			inner_y=p;
+		}
+		void disp()
+		{
+			System.out.println("outer_x"+outer_x+"inner_y"+inner_y);
+		}
+	}
+}
+public class Demoinnerclass {
+
+	public static void main(String[] args) {
+		Outer o1=new Outer();
+		Outer o2=new Outer(1,2);
+		System.out.println("object 1");
+		o1.show();
+		System.out.println("object 2");
+		o2.show();
+	}
+}
