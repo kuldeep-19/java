@@ -1,0 +1,53 @@
+package asdf;
+interface polygon
+{
+	void calcarea();
+	void calcperi();
+}
+
+class square implements polygon
+{
+	float side;
+	square()
+	{
+		side=(float)3.5;
+	}
+	public void calcarea()
+	{
+		System.out.println("area is"+(side*side));
+	}
+	public void calcperi()
+	{
+		System.out.println("perimeter is :"+(4*side));
+	}
+}
+class rectangle implements polygon
+{
+	float length,breadth;
+	rectangle(float len,float bred)
+	{
+		this.length=len;
+		this.breadth=bred;
+	}
+	public void calcarea()
+	{
+		System.out.println("rectangle areab is :"+(length*breadth));
+	}
+	public void calcperi()
+	{
+		System.out.println("perameter is "+(2*(length+breadth)));
+	}
+}
+
+public class abz {
+
+	public static void main(String[] args) {
+	
+square s=new square();
+s.calcarea();
+s.calcperi();
+rectangle r= new rectangle((float)10.1,(float)2.5);
+r.calcarea ();
+r.calcperi ();
+	}
+	}
