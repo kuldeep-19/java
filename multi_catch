@@ -1,0 +1,55 @@
+package multicatch;
+import java.util.Scanner;
+
+class exc{
+	int a,b;
+	int x[];
+	exc()
+	{
+		a=b=0;
+		x=new int[2];
+	}
+	exc (int a, int b)
+	{
+		this.a=a;
+		this.b=b;
+		x=new int[2];
+		for(int i=1; i<x.length; i++)
+		{
+			x[i-1]=1;
+		}
+	}
+	void func()
+	{
+		int i=0;
+		Scanner sc =new Scanner(System.in);
+		try
+		{
+			for(i=0; i<=10; i++, b--)
+				System.out.println(x[i]/b);
+		}
+		catch(ArithmeticException e) {
+			System.out.println(e.getMessage());
+			b=sc.nextInt();
+			System.out.println(x[i]/b);
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Array Index Out Of Bounds");
+			System.out.println(e.getMessage());
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+	exc e1=new exc(20,30);
+	e1.func();
+	}
+
+}
