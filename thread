@@ -1,0 +1,45 @@
+package multitherad;
+class NT extends Thread 
+{
+	Thread t;
+	NT (String Name)
+	{
+		super(Name);
+	}
+	public void run()
+	{
+		try 
+		{
+			for(int i=5; i>0; i--)
+			{
+				System.out.println("child Thread" +i);
+				Thread.sleep(500);
+			}
+		}
+		catch (InterruptedException e)
+		{
+			System.out.println(e);
+		}
+	}
+}
+public class Demo1 {
+
+	public static void main(String[] args) 
+	{
+	NT nob = new NT ("Thread");
+	nob.start();     
+	try
+	{
+		for(int i=5; i>0; i--)
+		{
+			System.out.println("main Thread" +i);
+			Thread.sleep(10000);
+		}
+	}
+	catch(InterruptedException e)
+	{
+		System.out.println(e);
+	}
+	}
+
+}
